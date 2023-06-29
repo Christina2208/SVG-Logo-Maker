@@ -9,6 +9,7 @@ const promptUser = () => {
     .prompt([
         {
 //text input for the SVG logo text, 3 charcters maximum
+            type: 'input',
             name: 'text',
             message: 'Enter up to three characters that you want displayed on the logo',
             validate: (input) => {
@@ -18,6 +19,13 @@ const promptUser = () => {
                 return true;
             },
         },
+//text color of logo
+{
+    type: 'input',
+    name:'textColor',
+    message: 'Chose what color you would like your logo text',
+    default: 'white',
+},
 
     ])
 }
