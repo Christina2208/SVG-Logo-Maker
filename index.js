@@ -33,5 +33,31 @@ const promptUser = () => {
     message: "select a shape",
     choices: ['circle', 'triangle', 'square'],
 },
-    ])
-}
+{
+    //shape color
+    name: 'shapeColor',
+    message: 'Please enter the color for the desired shape of your choosing (keyword or hexadecimal):',
+    default: 'black',
+    },
+])
+.then((answers) => {
+    const { text, textColor, shape, shapeColor } = answers;
+    const svgTemplate = generateLogoSvg(text, textColor, shape, shapeColor);
+    saveSvgToFile(svgTemplate);
+})
+.catch((error) => {
+    console.log('An error occurred:', error);
+});
+};
+
+const saveSvgToFile = (svgTemplate) => {
+fs.writeFile('logo.svg', svgTemplate, (err) => {
+if (err) {
+console.log('Error while saving SVG file', err);
+} else {
+console.log('Generated logo.svg');
+};
+});
+};
+
+promptUser();
