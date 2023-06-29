@@ -26,6 +26,12 @@ const promptUser = () => {
     message: 'Chose what color you would like your logo text',
     default: 'white',
 },
-
+{
+//shape options
+    type: 'list',
+    nape: 'shape',
+    message: "select a shape",
+    choices: ['circle', 'triangle', 'square'],
+},
     ])
 }
